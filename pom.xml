@@ -76,6 +76,7 @@
     <version.plugin.source>2.1.2</version.plugin.source>
     <version.plugin.surefire>2.18.1</version.plugin.surefire>
 
+    <illegaltransitivereportonly>false</illegaltransitivereportonly>
   </properties>
 
   <build>
