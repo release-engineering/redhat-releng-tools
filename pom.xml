@@ -77,6 +77,16 @@
     <version.plugin.surefire>2.18.1</version.plugin.surefire>
 
     <illegaltransitivereportonly>false</illegaltransitivereportonly>
+    <enforceManagedDeps>true</enforceManagedDeps>
+
+    <unEnforcedPlugins>org.eclipse.m2e:lifecycle-mapping</unEnforcedPlugins>
+    <enforcedMavenVersion>(,2.1.0),(2.1.0,2.2.0),(2.2.0,)</enforcedMavenVersion>
+    <enforcedJavaVersion>${javaVersion}</enforcedJavaVersion>
+
+    <enforceBestPractices>true</enforceBestPractices>
+    <enforceStandards>true</enforceStandards>
+    <enforceVersions>true</enforceVersions>
+    <enforceTripHazards>true</enforceTripHazards>
   </properties>
 
   <build>
@@ -197,7 +207,7 @@
             <dependency>
               <groupId>org.commonjava.maven.enforcer</groupId>
               <artifactId>enforce-managed-deps-rule</artifactId>
-              <version>1.1</version>
+              <version>1.0</version>
             </dependency>
             <dependency>
               <groupId>de.is24.maven.enforcer.rules</groupId>
@@ -207,73 +217,83 @@
           </dependencies>
           <executions>
             <execution>
+              <id>avoid-trip-hazards</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <phase>initialize</phase>
+              <configuration>
+                <fail>${enforceTripHazards}</fail>
+                <rules>
+                  <requireSameVersions>
+                    <dependencies>
+                      <dependency>${project.groupId}*</dependency>
+                    </dependencies>
+                  </requireSameVersions>
+                </rules>
+              </configuration>
+            </execution>
+            <execution>
+              <id>enforce-commonjava-standards</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <phase>initialize</phase>
+              <configuration>
+                <fail>${enforceStandards}</fail>
+                <rules>
+                  <requireManagedDeps implementation="org.commonjava.maven.enforcer.rule.EnforceManagedDepsRule">
+                    <!-- <message>Capture dependencies in top-level dependencyManagement section for easy reference.</message> -->
+                    <checkProfiles>false</checkProfiles>
+                    <failOnViolation>${enforceManagedDeps}</failOnViolation>
+                  </requireManagedDeps>
+                  <illegalTransitiveDependencyCheck implementation="de.is24.maven.enforcer.rules.IllegalTransitiveDependencyCheck">
+                    <reportOnly>${illegaltransitivereportonly}</reportOnly>
+                    <regexIgnoredClasses>
+                        <regexIgnoredClass>com\.sun\.net\.httpserver\..+</regexIgnoredClass>
+                        <regexIgnoredClass>javax\..+</regexIgnoredClass>
+                        <regexIgnoredClass>org\.w3c\.dom\..+</regexIgnoredClass>
+                        <regexIgnoredClass>org\.xml\.sax\..+</regexIgnoredClass>
+                    </regexIgnoredClasses>
+                    <useClassesFromLastBuild>true</useClassesFromLastBuild>
+                  </illegalTransitiveDependencyCheck>
+                </rules>
+              </configuration>
+            </execution>
+            <execution>
               <id>enforce-best-practices</id>
               <goals>
                 <goal>enforce</goal>
               </goals>
               <phase>initialize</phase>
               <configuration>
+                <fail>${enforceBestPractices}</fail>
                 <rules>
-                  <requireJavaVersion>
-                    <version>${javaVersion}</version>
-                  </requireJavaVersion>
                   <reactorModuleConvergence />
+                  <requireNoRepositories />
                   <requirePluginVersions>
                     <banLatest />
                     <banRelease />
                     <banSnapshots />
-                    <unCheckedPluginList>org.eclipse.m2e:lifecycle-mapping</unCheckedPluginList>
+                    <unCheckedPluginList>${unEnforcedPlugins}</unCheckedPluginList>
                   </requirePluginVersions>
                 </rules>
               </configuration>
             </execution>
             <execution>
-              <id>no-managed-deps</id>
-              <goals>
-                <goal>enforce</goal>
-              </goals>
-              <phase>initialize</phase>
-              <configuration>
-                <rules>
-                  <requireManagedDeps implementation="org.commonjava.maven.enforcer.rule.EnforceManagedDepsRule">
-                    <checkProfiles>true</checkProfiles>
-                    <failOnViolation>true</failOnViolation>
-                  </requireManagedDeps>
-                </rules>
-              </configuration>
-            </execution>
-            <execution>
-              <id>enforce-maven</id>
+              <id>enforce-versions</id>
               <goals>
                 <goal>enforce</goal>
               </goals>
               <configuration>
+                <fail>${enforceVersions}</fail>
                 <rules>
                   <requireMavenVersion>
-                    <version>(,2.1.0),(2.1.0,2.2.0),(2.2.0,)</version>
-                    <message>Maven 2.1.0 and 2.2.0 produce incorrect GPG signatures and checksums respectively.</message>
+                    <version>${enforcedMavenVersion}</version>
                   </requireMavenVersion>
-                </rules>
-              </configuration>
-            </execution>
-            <execution>
-              <id>enforce-direct-dependencies</id>
-              <phase>process-classes</phase>
-              <goals>
-                <goal>enforce</goal>
-              </goals>
-              <configuration>
-                <rules>
-                  <illegalTransitiveDependencyCheck implementation="de.is24.maven.enforcer.rules.IllegalTransitiveDependencyCheck">
-                    <reportOnly>${illegaltransitivereportonly}</reportOnly>
-                    <regexIgnoredClasses>
-                      <regexIgnoredClass>com\.sun\.net\.httpserver\..+</regexIgnoredClass>
-                      <regexIgnoredClass>javax\..+</regexIgnoredClass>
-                      <regexIgnoredClass>org\.w3c\.dom\..+</regexIgnoredClass>
-                      <regexIgnoredClass>org\.xml\.sax\..+</regexIgnoredClass>
-                    </regexIgnoredClasses>
-                    <useClassesFromLastBuild>true</useClassesFromLastBuild>
-                  </illegalTransitiveDependencyCheck>
+                  <requireJavaVersion>
+                    <version>${enforcedJavaVersion}</version>
+                  </requireJavaVersion>
                 </rules>
               </configuration>
             </execution>
