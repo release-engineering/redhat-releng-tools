@@ -55,6 +55,7 @@
 
   <properties>
     <javaVersion>1.8</javaVersion>
+    <javaTestVersion>1.8</javaTestVersion>
     <projectOwner>Red Hat, Inc.</projectOwner>
     <projectEmail>jcasey@redhat.com</projectEmail>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -100,6 +101,8 @@
             <debug>true</debug>
             <source>${javaVersion}</source>
             <target>${javaVersion}</target>
+            <testSource>${javaTestVersion}</testSource>
+            <testTarget>${javaTestVersion}</testTarget>
           </configuration>
         </plugin>
         <plugin>
