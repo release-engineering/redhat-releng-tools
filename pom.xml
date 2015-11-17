@@ -55,7 +55,7 @@
 
   <properties>
     <javaVersion>1.8</javaVersion>
-    <javaTestVersion>1.8</javaTestVersion>
+    <javaTestVersion>${javaVersion}</javaTestVersion>
     <projectOwner>Red Hat, Inc.</projectOwner>
     <projectEmail>jcasey@redhat.com</projectEmail>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
