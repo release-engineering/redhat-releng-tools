@@ -126,6 +126,10 @@
           <artifactId>maven-resources-plugin</artifactId>
           <version>${version.plugin.resources}</version>
         </plugin>
+        <plugin>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${version.plugin.source}</version>
+        </plugin>
 
         <plugin>
           <artifactId>maven-plugin-plugin</artifactId>
