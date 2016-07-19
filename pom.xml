@@ -77,6 +77,7 @@
     <version.plugin.site>3.3</version.plugin.site>
     <version.plugin.source>2.1.2</version.plugin.source>
     <version.plugin.surefire>2.18.1</version.plugin.surefire>
+    <version.plugin.pmd>3.6</version.plugin.pmd>
 
     <illegaltransitivereportonly>false</illegaltransitivereportonly>
     <enforceManagedDeps>true</enforceManagedDeps>
@@ -399,6 +400,24 @@
           </executions>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>${version.plugin.pmd}</version>
+          <configuration>
+            <targetJdk>${javaVersion}</targetJdk>
+            <ruleset>pmd-ruleset.xml</ruleset>
+          </configuration>
+          <executions>
+            <execution>
+              <phase>process-sources</phase>
+              <goals>
+                <goal>check</goal>
+                <goal>pmd</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
           <groupId>com.mycila</groupId>
           <artifactId>license-maven-plugin</artifactId>
           <version>2.10</version>
@@ -464,7 +483,7 @@
 
   <profiles>
     <profile>
-      <id>formatting</id>
+      <id>cq</id>
       <build>
         <plugins>
           <plugin>
@@ -478,6 +497,10 @@
                 </goals>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
           </plugin>
         </plugins>
       </build>
