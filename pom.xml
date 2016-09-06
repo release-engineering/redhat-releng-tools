@@ -435,6 +435,8 @@
               <exclude>**/*.groovy</exclude>
             </excludes>
             <mapping>
+              <!-- Workaround for https://github.com/mycila/license-maven-plugin/pull/109 -->
+              <java>SLASHSTAR_STYLE</java>
               <service>SCRIPT_STYLE</service>
             </mapping>
           </configuration>
