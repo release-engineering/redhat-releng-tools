@@ -440,6 +440,13 @@
               <service>SCRIPT_STYLE</service>
             </mapping>
           </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>com.redhat.rcm</groupId>
+              <artifactId>redhat-releng-license-templates</artifactId>
+              <version>1</version>
+            </dependency>
+          </dependencies>
         </plugin>
 
         <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
