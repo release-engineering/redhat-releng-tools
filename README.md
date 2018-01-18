@@ -18,10 +18,3 @@ The release profile enables the maven-gpg-plugin, maven-source-plugin and the li
     </plugin>
 
 in the project configuration. The allows `Copyright (C) ${project.inceptionYear} ${owner}` instead of `Copyright (C) ${project.inceptionYear} ${owner} (${email})`.
-
-Releasing the releng-tools project
-==================================
-
-As the license-plugin must have the license module as a dependency, a project variable is used. This means that when releasing this variable **must** be specified e.g.
-
-    mvn -DdryRun=true release:prepare -DglobalVersion=<next release version>
