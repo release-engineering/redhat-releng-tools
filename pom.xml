@@ -71,6 +71,7 @@
     <version.plugin.jar>3.0.2</version.plugin.jar>
     <version.plugin.javadoc>2.8.1</version.plugin.javadoc>
     <version.plugin.plexus-component-metadata>1.7</version.plugin.plexus-component-metadata>
+    <version.plugin.sisu>0.3.3</version.plugin.sisu>
     <version.plugin.plugin>3.5</version.plugin.plugin>
     <version.plugin.release>2.5.3</version.plugin.release>
     <version.plugin.resources>3.0.2</version.plugin.resources>
@@ -146,6 +147,19 @@
           <configuration>
             <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
           </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.sisu</groupId>
+          <artifactId>sisu-maven-plugin</artifactId>
+          <version>${version.plugin.sisu}</version>
+          <executions>
+            <execution>
+              <id>generate-index</id>
+              <goals>
+                <goal>main-index</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
         <plugin>
           <groupId>org.codehaus.plexus</groupId>
