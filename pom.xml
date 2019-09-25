@@ -60,31 +60,31 @@
     <projectEmail>jcasey@redhat.com</projectEmail>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <version.plugin.assembly>2.6</version.plugin.assembly>
-    <version.plugin.clean>3.0.0</version.plugin.clean>
-    <version.plugin.compiler>3.7.0</version.plugin.compiler>
-    <version.plugin.deploy>2.8.2</version.plugin.deploy>
-    <version.plugin.enforcer>3.0.0-M1</version.plugin.enforcer>
-    <version.plugin.failsafe>2.20.1</version.plugin.failsafe>
+    <version.plugin.assembly>3.1.1</version.plugin.assembly>
+    <version.plugin.clean>3.1.0</version.plugin.clean>
+    <version.plugin.compiler>3.8.1</version.plugin.compiler>
+    <version.plugin.deploy>3.0.0-M1</version.plugin.deploy>
+    <version.plugin.enforcer>3.0.0-M2</version.plugin.enforcer>
+    <version.plugin.failsafe>3.0.0-M3</version.plugin.failsafe>
     <version.plugin.gpg>1.6</version.plugin.gpg>
-    <version.plugin.install>2.5.2</version.plugin.install>
-    <version.plugin.jar>3.0.2</version.plugin.jar>
-    <version.plugin.javadoc>2.8.1</version.plugin.javadoc>
+    <version.plugin.install>3.0.0-M1</version.plugin.install>
+    <version.plugin.jar>3.1.2</version.plugin.jar>
+    <version.plugin.javadoc>3.1.1</version.plugin.javadoc>
     <version.plugin.plexus-component-metadata>1.7</version.plugin.plexus-component-metadata>
     <version.plugin.sisu>0.3.3</version.plugin.sisu>
-    <version.plugin.plugin>3.5</version.plugin.plugin>
+    <version.plugin.plugin>3.6.0</version.plugin.plugin>
     <version.plugin.release>2.5.3</version.plugin.release>
-    <version.plugin.resources>3.0.2</version.plugin.resources>
-    <version.plugin.site>3.6</version.plugin.site>
-    <version.plugin.source>3.0.1</version.plugin.source>
-    <version.plugin.surefire>2.20.1</version.plugin.surefire>
-    <version.plugin.pmd>3.8</version.plugin.pmd>
+    <version.plugin.resources>3.1.0</version.plugin.resources>
+    <version.plugin.site>3.8.2</version.plugin.site>
+    <version.plugin.source>3.1.0</version.plugin.source>
+    <version.plugin.surefire>3.0.0-M3</version.plugin.surefire>
+    <version.plugin.pmd>3.12.0</version.plugin.pmd>
 
     <illegaltransitivereportonly>false</illegaltransitivereportonly>
     <enforceManagedDeps>true</enforceManagedDeps>
 
     <unEnforcedPlugins>org.eclipse.m2e:lifecycle-mapping</unEnforcedPlugins>
-    <enforcedMavenVersion>(,2.1.0),(2.1.0,2.2.0),(2.2.0,)</enforcedMavenVersion>
+    <enforcedMavenVersion>(3.0.5,)</enforcedMavenVersion>
     <enforcedJavaVersion>${javaVersion}</enforcedJavaVersion>
 
     <enforceBestPractices>true</enforceBestPractices>
@@ -472,32 +472,6 @@
               <version>1</version>
             </dependency>
           </dependencies>
-        </plugin>
-
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-plugin-plugin</artifactId>
-                    <versionRange>[3.2,)</versionRange>
-                    <goals>
-                      <goal>descriptor</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore />
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
