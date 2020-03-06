@@ -27,7 +27,7 @@
 
   <url>https://github.com/release-engineering/redhat-releng-tools</url>
 
-  <description>Top-level parent POM for Red Hat Release Engineering Tooling.</description>
+  <description>Top-level parent POM for Red Hat Tooling.</description>
   <inceptionYear>2015</inceptionYear>
 
   <licenses>
@@ -86,6 +86,7 @@
     <version.plugin.source>3.2.1</version.plugin.source>
     <version.plugin.surefire>3.0.0-M4</version.plugin.surefire>
     <version.plugin.pmd>3.13.0</version.plugin.pmd>
+    <version.plugin.license>3.0</version.plugin.license>
 
     <illegaltransitivereportonly>false</illegaltransitivereportonly>
     <enforceManagedDeps>true</enforceManagedDeps>
@@ -452,7 +453,7 @@
         <plugin>
           <groupId>com.mycila</groupId>
           <artifactId>license-maven-plugin</artifactId>
-          <version>2.11</version>
+          <version>${version.plugin.license}</version>
           <configuration>
             <header>APACHE-2-SIMPLIFIED-COPYRIGHT.txt</header>
             <properties>
@@ -462,9 +463,6 @@
             <excludes>
               <exclude>**/README</exclude>
               <exclude>**/LICENSE*</exclude>
-              <exclude>src/test/resources/**</exclude>
-              <exclude>src/main/resources/**</exclude>
-              <exclude>**/*.groovy</exclude>
             </excludes>
             <mapping>
               <!-- Workaround for https://github.com/mycila/license-maven-plugin/pull/109 -->
@@ -476,8 +474,7 @@
             <dependency>
               <groupId>com.mycila</groupId>
               <artifactId>license-maven-plugin-git</artifactId>
-              <!-- make sure you use the same version as license-maven-plugin -->
-              <version>2.11</version>
+              <version>${version.plugin.license}</version>
             </dependency>
             <dependency>
               <groupId>com.redhat.rcm</groupId>
