@@ -65,13 +65,11 @@
     <projectEmail>jcasey@redhat.com</projectEmail>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <version.plugin.assembly>3.2.0</version.plugin.assembly>
+    <version.plugin.assembly>3.3.0</version.plugin.assembly>
     <version.plugin.clean>3.1.0</version.plugin.clean>
     <version.plugin.compiler>3.8.1</version.plugin.compiler>
-    <!-- MDEPLOY-244 -->
-    <version.plugin.deploy>2.8.2</version.plugin.deploy>
-    <!-- M2 causes issues with parent plugin verification -->
-    <version.plugin.enforcer>3.0.0-M1</version.plugin.enforcer>
+    <version.plugin.deploy>3.0.0-M1</version.plugin.deploy>
+    <version.plugin.enforcer>3.0.0-M3</version.plugin.enforcer>
     <version.plugin.failsafe>3.0.0-M5</version.plugin.failsafe>
     <version.plugin.gpg>1.6</version.plugin.gpg>
     <version.plugin.install>3.0.0-M1</version.plugin.install>
@@ -80,24 +78,26 @@
     <version.plugin.plexus-component-metadata>2.1.0</version.plugin.plexus-component-metadata>
     <version.plugin.sisu>0.3.4</version.plugin.sisu>
     <version.plugin.plugin>3.6.0</version.plugin.plugin>
-    <version.plugin.release>3.0.0-M1</version.plugin.release>
-    <version.plugin.resources>3.1.0</version.plugin.resources>
+    <version.plugin.release>3.0.0-M4</version.plugin.release>
+    <version.plugin.resources>3.2.0</version.plugin.resources>
     <version.plugin.site>3.9.1</version.plugin.site>
     <version.plugin.source>3.2.1</version.plugin.source>
     <version.plugin.surefire>3.0.0-M5</version.plugin.surefire>
     <version.plugin.pmd>3.13.0</version.plugin.pmd>
-    <version.plugin.license>3.0</version.plugin.license>
+    <version.plugin.license>4.1</version.plugin.license>
 
     <enforceManagedDeps>true</enforceManagedDeps>
 
     <unEnforcedPlugins>org.eclipse.m2e:lifecycle-mapping</unEnforcedPlugins>
-    <enforcedMavenVersion>[3.2.5,)</enforcedMavenVersion>
+    <enforcedMavenVersion>[3.3.9,)</enforcedMavenVersion>
     <enforcedJavaVersion>${javaVersion}</enforcedJavaVersion>
 
     <enforceBestPractices>true</enforceBestPractices>
     <enforceStandards>true</enforceStandards>
     <enforceVersions>true</enforceVersions>
     <enforceTripHazards>true</enforceTripHazards>
+    <!-- Defaults to true but can cause issues with Gradle TestKit: https://github.com/gradle/gradle/issues/15269 -->
+    <addJarIndex>true</addJarIndex>
   </properties>
 
   <build>
@@ -322,7 +322,7 @@
           <version>${version.plugin.assembly}</version>
           <configuration>
             <archive>
-              <index>true</index>
+              <index>${addJarIndex}</index>
               <manifest>
                 <addDefaultSpecificationEntries>
                   true
@@ -351,7 +351,7 @@
           <version>${version.plugin.jar}</version>
           <configuration>
             <archive>
-              <index>true</index>
+              <index>${addJarIndex}</index>
               <manifest>
                 <addDefaultSpecificationEntries>
                   true
@@ -382,7 +382,7 @@
              <header><![CDATA[<b>${project.name} ${project.version}</b>]]></header>
              <footer><![CDATA[<b>${project.name} ${project.version}</b>]]></footer>
              <archive>
-                <index>true</index>
+                <index>${addJarIndex}</index>
                 <manifest>
                   <addDefaultSpecificationEntries>
                     true
@@ -466,11 +466,6 @@
               <exclude>**/README</exclude>
               <exclude>**/LICENSE*</exclude>
             </excludes>
-            <mapping>
-              <!-- Workaround for https://github.com/mycila/license-maven-plugin/pull/109 -->
-              <java>SLASHSTAR_STYLE</java>
-              <service>SCRIPT_STYLE</service>
-            </mapping>
           </configuration>
           <dependencies>
             <dependency>
@@ -553,7 +548,7 @@
             <version>${version.plugin.source}</version>
             <configuration>
               <archive>
-                <index>true</index>
+                <index>${addJarIndex}</index>
                 <manifest>
                   <addDefaultSpecificationEntries>
                     true
