@@ -227,8 +227,8 @@
           <configuration>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <mavenExecutorId>forked-path</mavenExecutorId>
-            <useReleaseProfile>false</useReleaseProfile>
             <arguments>-Prelease</arguments>
+            <releaseProfiles>skipLicenseOnPerformRelease</releaseProfiles>
           </configuration>
         </plugin>
         <plugin>
@@ -595,6 +595,12 @@
           </plugin>
         </plugins>
       </build>
+    </profile>
+    <profile>
+      <id>skipLicenseOnPerformRelease</id>
+      <properties>
+        <license.skip>true</license.skip>
+      </properties>
     </profile>
   </profiles>
 
