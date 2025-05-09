@@ -65,24 +65,24 @@
     <projectEmail>jcasey@redhat.com</projectEmail>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <version.plugin.assembly>3.3.0</version.plugin.assembly>
-    <version.plugin.clean>3.1.0</version.plugin.clean>
-    <version.plugin.compiler>3.8.1</version.plugin.compiler>
-    <version.plugin.deploy>3.0.0-M1</version.plugin.deploy>
-    <version.plugin.enforcer>3.0.0-M3</version.plugin.enforcer>
-    <version.plugin.failsafe>3.0.0-M5</version.plugin.failsafe>
-    <version.plugin.gpg>1.6</version.plugin.gpg>
-    <version.plugin.install>3.0.0-M1</version.plugin.install>
-    <version.plugin.jar>3.2.0</version.plugin.jar>
-    <version.plugin.javadoc>3.2.0</version.plugin.javadoc>
-    <version.plugin.plexus-component-metadata>2.1.0</version.plugin.plexus-component-metadata>
+    <version.plugin.assembly>3.6.0</version.plugin.assembly>
+    <version.plugin.clean>3.3.2</version.plugin.clean>
+    <version.plugin.compiler>3.12.1</version.plugin.compiler>
+    <version.plugin.deploy>3.1.1</version.plugin.deploy>
+    <version.plugin.enforcer>3.4.1</version.plugin.enforcer>
+    <version.plugin.failsafe>3.2.5</version.plugin.failsafe>
+    <version.plugin.gpg>3.2.4</version.plugin.gpg>
+    <version.plugin.install>3.1.1</version.plugin.install>
+    <version.plugin.jar>3.3.0</version.plugin.jar>
+    <version.plugin.javadoc>3.6.3</version.plugin.javadoc>
+    <version.plugin.plexus-component-metadata>2.2.0</version.plugin.plexus-component-metadata>
     <version.plugin.sisu>0.3.4</version.plugin.sisu>
-    <version.plugin.plugin>3.6.0</version.plugin.plugin>
-    <version.plugin.release>3.0.0-M4</version.plugin.release>
-    <version.plugin.resources>3.2.0</version.plugin.resources>
+    <version.plugin.plugin>3.12.0</version.plugin.plugin>
+    <version.plugin.release>3.0.1</version.plugin.release>
+    <version.plugin.resources>3.3.1</version.plugin.resources>
     <version.plugin.site>3.9.1</version.plugin.site>
-    <version.plugin.source>3.2.1</version.plugin.source>
-    <version.plugin.surefire>3.0.0-M5</version.plugin.surefire>
+    <version.plugin.source>3.3.1</version.plugin.source>
+    <version.plugin.surefire>3.2.5</version.plugin.surefire>
     <version.plugin.pmd>3.13.0</version.plugin.pmd>
     <version.plugin.license>4.1</version.plugin.license>
 
@@ -493,6 +493,15 @@
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
       </plugin>
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <version>0.7.0</version>
+        <extensions>true</extensions>
+        <configuration>
+          <publishingServerId>central</publishingServerId>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
@@ -603,18 +612,4 @@
       </properties>
     </profile>
   </profiles>
-
-  <distributionManagement>
-    <repository>
-      <id>sonatype-nexus-staging</id>
-      <name>Release Repository</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-    <snapshotRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <name>Sonatype Nexus</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
-
 </project>
