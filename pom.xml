@@ -79,7 +79,7 @@
     <version.plugin.sisu>0.9.0.M4</version.plugin.sisu>
     <version.plugin.plugin>3.12.0</version.plugin.plugin>
     <version.plugin.release>3.0.1</version.plugin.release>
-    <version.plugin.resources>3.3.1</version.plugin.resources>
+    <version.plugin.resources>3.4.0</version.plugin.resources>
     <version.plugin.site>3.9.1</version.plugin.site>
     <version.plugin.source>3.3.1</version.plugin.source>
     <version.plugin.surefire>3.5.4</version.plugin.surefire>
