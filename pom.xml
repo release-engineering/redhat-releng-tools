@@ -72,7 +72,7 @@
     <version.plugin.enforcer>3.4.1</version.plugin.enforcer>
     <version.plugin.failsafe>3.2.5</version.plugin.failsafe>
     <version.plugin.gpg>3.2.4</version.plugin.gpg>
-    <version.plugin.install>3.1.1</version.plugin.install>
+    <version.plugin.install>3.1.4</version.plugin.install>
     <version.plugin.jar>3.3.0</version.plugin.jar>
     <version.plugin.javadoc>3.6.3</version.plugin.javadoc>
     <version.plugin.plexus-component-metadata>2.2.0</version.plugin.plexus-component-metadata>
