@@ -82,7 +82,7 @@
     <version.plugin.resources>3.3.1</version.plugin.resources>
     <version.plugin.site>3.9.1</version.plugin.site>
     <version.plugin.source>3.3.1</version.plugin.source>
-    <version.plugin.surefire>3.2.5</version.plugin.surefire>
+    <version.plugin.surefire>3.5.4</version.plugin.surefire>
     <version.plugin.pmd>3.22.0</version.plugin.pmd>
     <version.plugin.license>4.3</version.plugin.license>
 
