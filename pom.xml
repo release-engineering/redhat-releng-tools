@@ -89,7 +89,7 @@
     <enforceManagedDeps>true</enforceManagedDeps>
 
     <unEnforcedPlugins>org.eclipse.m2e:lifecycle-mapping</unEnforcedPlugins>
-    <enforcedMavenVersion>[3.3.9,)</enforcedMavenVersion>
+    <enforcedMavenVersion>[3.6.3,)</enforcedMavenVersion>
     <enforcedJavaVersion>${javaVersion}</enforcedJavaVersion>
 
     <enforceBestPractices>true</enforceBestPractices>
