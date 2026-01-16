@@ -65,7 +65,7 @@
     <projectEmail>jcasey@redhat.com</projectEmail>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <version.plugin.assembly>3.6.0</version.plugin.assembly>
+    <version.plugin.assembly>3.8.0</version.plugin.assembly>
     <version.plugin.clean>3.3.2</version.plugin.clean>
     <version.plugin.compiler>3.12.1</version.plugin.compiler>
     <version.plugin.deploy>3.1.1</version.plugin.deploy>
@@ -74,16 +74,16 @@
     <version.plugin.gpg>3.2.8</version.plugin.gpg>
     <version.plugin.install>3.1.4</version.plugin.install>
     <version.plugin.jar>3.3.0</version.plugin.jar>
-    <version.plugin.javadoc>3.6.3</version.plugin.javadoc>
+    <version.plugin.javadoc>3.12.0</version.plugin.javadoc>
     <version.plugin.plexus-component-metadata>2.2.0</version.plugin.plexus-component-metadata>
     <version.plugin.sisu>0.9.0.M4</version.plugin.sisu>
     <version.plugin.plugin>3.12.0</version.plugin.plugin>
-    <version.plugin.release>3.0.1</version.plugin.release>
+    <version.plugin.release>3.3.1</version.plugin.release>
     <version.plugin.resources>3.4.0</version.plugin.resources>
     <version.plugin.site>3.9.1</version.plugin.site>
-    <version.plugin.source>3.3.1</version.plugin.source>
+    <version.plugin.source>3.4.0</version.plugin.source>
     <version.plugin.surefire>3.5.4</version.plugin.surefire>
-    <version.plugin.pmd>3.22.0</version.plugin.pmd>
+    <version.plugin.pmd>3.28.0</version.plugin.pmd>
     <version.plugin.license>4.3</version.plugin.license>
 
     <enforceManagedDeps>true</enforceManagedDeps>
